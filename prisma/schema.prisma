@@ -1,8 +1,6 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["mongoDb"]
 }
 
 datasource db {
@@ -18,10 +16,10 @@ model User {
   emailVerified  DateTime?
   hashedPassword String?
   createdAt      DateTime  @default(now())
-  updateAt       DateTime  @updatedAt
-  favoriteIds    String[]  @db.ObjectId
+  updatedAt      DateTime  @updatedAt
   sessions       Session[]
   accounts       Account[]
+  favoriteIds    String[]  @db.ObjectId
 }
 
 model Account {
@@ -60,11 +58,11 @@ model VerificationToken {
 }
 
 model Movie {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
-  title       String
-  description String
-  videoUrl    String
-  thumbnaiUrl String
-  genre       String
-  duration    String
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  title        String
+  description  String
+  videoUrl     String
+  thumbnailUrl String
+  genre        String
+  duration     String
 }
